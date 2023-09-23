@@ -33,6 +33,8 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     alignItems: 'center',
     paddingHorizontal: 10,
+    borderBlockColor: '#00000010',
+    borderBottomWidth: 1,
   },
   title: {
     fontWeight: '600',
