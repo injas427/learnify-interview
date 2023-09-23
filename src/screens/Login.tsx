@@ -4,12 +4,16 @@ import {StyleSheet, Text, TextInput, View} from 'react-native';
 import {Button, LoginContainer} from '../components/common';
 import {PHONE_REG} from '../constants';
 
-export const Login = () => {
+export const Login = ({
+  navigation,
+}: {
+  navigation: {navigate: (screenName: string, params: object) => void};
+}) => {
   const [phoneNumber, setPhoneNumber] = useState('');
 
   const isButtonDisabled = () => !PHONE_REG.test(phoneNumber);
   return (
-    <LoginContainer>
+    <LoginContainer title="Log in">
       <View style={styles.fieldSectionContainer}>
         <View style={styles.inputContainer}>
           <Text>+91 </Text>
@@ -25,7 +29,11 @@ export const Login = () => {
         <Button
           label="Get OTP"
           disabled={isButtonDisabled()}
-          onPress={() => {}}
+          onPress={() =>
+            navigation.navigate('verify_otp', {
+              phoneNumber: `+91 ${phoneNumber}`,
+            })
+          }
         />
       </View>
     </LoginContainer>

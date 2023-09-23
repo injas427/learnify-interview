@@ -1,13 +1,15 @@
 import React from 'react';
 import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import PropTypes from 'prop-types';
+import {useNavigation} from '@react-navigation/native';
 
 export const Header = ({title = '', canGoBack = false}) => {
+  const navigation = useNavigation();
   return (
     <View style={styles.headerContainer}>
       <View>
         {canGoBack && (
-          <TouchableOpacity>
+          <TouchableOpacity onPress={() => navigation.goBack()}>
             <Text>Go back</Text>
           </TouchableOpacity>
         )}

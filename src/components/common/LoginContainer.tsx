@@ -1,13 +1,20 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
 import {StyleSheet, Text, View} from 'react-native';
 import {Container} from './Container';
 import Bg from '../../assets/images/bg.svg';
 
-export const LoginContainer = ({children}: {children: React.ReactNode}) => {
+export const LoginContainer = ({
+  title,
+  children,
+  canGoBack,
+}: {
+  title: string;
+  children: React.ReactNode;
+  canGoBack?: boolean;
+}) => {
   return (
-    <Container title="Log in">
+    <Container title={title} canGoBack={canGoBack}>
       <>
         <View style={styles.bgContainer}>
           <Bg width={170} height={170} />
@@ -38,7 +45,3 @@ const styles = StyleSheet.create({
     color: '#a8a8a7',
   },
 });
-
-LoginContainer.propTypes = {
-  children: PropTypes.element,
-};
